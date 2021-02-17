@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SandboxApp.utils;
+using System;
 using System.Runtime.InteropServices;
 using uint32_t = System.UInt32;
 
@@ -13,12 +14,18 @@ namespace SandboxApp
         [DllImport(LIBRARY, CallingConvention = importCall)]
         public static extern uint32_t obs_get_version();
 
+        [DllImport(LIBRARY, CallingConvention = importCall, CharSet = importCharSet)]
+        [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
+        public static extern string obs_get_version_string();
+
         private static void Main(string[] args)
         {
             var ver = new Version { Full = obs_get_version() };
             var helloStr = "Hello OBS Version: " + ver;
+            var helloStr2 = "Hello OBS Version: " + obs_get_version_string();
 
             Console.WriteLine(helloStr);
+            Console.WriteLine(helloStr2);
         }
     }
 

@@ -11,7 +11,7 @@
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Error Condition="!Exists('$(SolutionDir)libobs\rundir\Release\bin\64bit\')" Text="libobs not compiled! Open a Developer Command Prompt and run the install_obs_win_deps.cmd script." />
-    <Exec Command="xcopy /y $(SolutionDir)libobs\rundir\Release\bin\64bit\*.dll $(TargetDir)\" />
+    <Exec Command="xcopy /y /b $(SolutionDir)libobs\rundir\Release\bin\64bit\*.dll $(TargetDir)\" />
   </Target>
   
 </Project>
