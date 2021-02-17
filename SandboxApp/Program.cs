@@ -16,8 +16,9 @@ namespace SandboxApp
         private static void Main(string[] args)
         {
             var ver = new Version { Full = obs_get_version() };
+            var helloStr = "Hello OBS Version: " + ver;
 
-            Console.WriteLine("Hello OBS Version: " + ver);
+            Console.WriteLine(helloStr);
         }
     }
 
