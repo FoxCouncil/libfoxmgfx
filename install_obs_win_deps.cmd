@@ -5,7 +5,7 @@ set CEF_VERSION=75.1.16+g16a67c4+chromium-75.0.3770.100
 echo * Creating directories...
 if not exist ".\obs-studio\" mkdir .\obs-studio
 if not exist ".\libobs\" mkdir .\libobs
-cd obs-studio
+cd libobs
 
 echo * Cloning libobs submodules...
 git submodule update --init --recursive
@@ -68,8 +68,6 @@ echo * Running CMAKE...
 
 echo[
 echo[
-cd ..
-cd libobs
 cmake -G "Visual Studio 16 2019" -A x64 -DCMAKE_SYSTEM_VERSION=10.0 -DCOPIED_DEPENDENCIES=false -DCOPY_DEPENDENCIES=true -DENABLE_VLC=ON -DDISABLE_UI=true -DCOMPILE_D3D12_HOOK=true -DBUILD_BROWSER=true -DBROWSER_PANEL_SUPPORT_ENABLED=OFF -DCEF_ROOT_DIR=%CEF_64% ..\obs-studio\
 echo[
 echo[
@@ -80,16 +78,8 @@ echo[
 echo[
 cd
 cmake --build %CD% --target ALL_BUILD --config Release
-echo[
-echo[
-
-echo * Copying build artifacts...
-
-echo[
-echo[
-
-echo[
-echo[
-
 cd ..
+echo[
+echo[
+
 echo ****** COMPLETE ******
