@@ -3,6 +3,7 @@ echo * Setting up env variables...
 set CEF_VERSION=75.1.16+g16a67c4+chromium-75.0.3770.100
 
 echo * Creating directories...
+if not exist ".\LibFoxObsCs\libs" mkdir .\LibFoxObsCs\libs
 if not exist ".\obs-studio\" mkdir .\obs-studio
 if not exist ".\libobs\" mkdir .\libobs
 cd libobs
@@ -78,8 +79,17 @@ echo[
 echo[
 cd
 cmake --build %CD% --target ALL_BUILD --config Release
-cd ..
+
 echo[
 echo[
+
+echo * Copying artifacts...
+
+echo[
+echo[
+
+xcopy /y /b rundir\Release\bin\64bit\*.* ..\LibFoxObsCs\libs
+del ..\LibFoxObsCs\libs\.gitignore
+cd..
 
 echo ****** COMPLETE ******

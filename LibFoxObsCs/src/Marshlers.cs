@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace SandboxApp.utils
+namespace LibFoxObsCs
 {
-    internal class ConstCharPtrMarshaler : ICustomMarshaler
+    public class ConstCharPtrMarshaler : ICustomMarshaler
     {
         public object MarshalNativeToManaged(IntPtr pNativeData)
         {

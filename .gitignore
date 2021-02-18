@@ -351,3 +351,6 @@ MigrationBackup/
 
 # obs-studio build directory
 libobs
+
+# obs-studio library files
+LibFoxObsCs/libs
