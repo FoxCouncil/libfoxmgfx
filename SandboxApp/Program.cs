@@ -20,6 +20,8 @@ namespace SandboxApp
 
         private static void Main(string[] args)
         {
+            Helpers.SaySomethingDynamic();
+
             var ver = new Version { Full = obs_get_version() };
             var helloStr = "Hello OBS Version: " + ver;
             var helloStr2 = "Hello OBS Version: " + obs_get_version_string();
@@ -33,7 +35,7 @@ namespace SandboxApp
     public struct Version
     {
         [FieldOffset(0)]
-        public UInt32 Full;
+        public uint32_t Full;
 
         [FieldOffset(3)]
         public byte Major;
@@ -42,7 +44,7 @@ namespace SandboxApp
         public byte Minor;
 
         [FieldOffset(0)]
-        public UInt16 Patch;
+        public ushort Patch;
 
         public override string ToString()
         {
